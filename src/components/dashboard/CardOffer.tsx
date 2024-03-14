@@ -1,6 +1,9 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface Props {
   title: string;
@@ -10,7 +13,13 @@ interface Props {
 
 const CardOffer = ({ title, img, className }: Props) => {
   return (
-    <div className="relative bg-background max-w-md mx-auto min-h-[600px] rounded-xl px-12 pt-16 overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.6, ease: "easeIn" }}
+      viewport={{ once: true }}
+      className="relative bg-background max-w-md mx-auto min-h-[600px] rounded-xl px-12 pt-16 overflow-hidden"
+    >
       <h3 className="uppercase text-3xl font-bold tracking-wider">{title}</h3>
       <div
         className={cn(
@@ -27,7 +36,7 @@ const CardOffer = ({ title, img, className }: Props) => {
           className="object-contain"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
