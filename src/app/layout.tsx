@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Montserrat as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -36,10 +36,8 @@ export default function RootLayout({
         >
           <main className="bg-black min-h-svh">
             <Navbar />
-            <div className="max-w-7xl mx-auto pt-[90px]">
-              <div className="w-[1000px] h-[800px] bg-red-500 rounded-full blur-[260px] absolute top-[-990px] left-[-400px]" />
-              {children}
-            </div>
+            <div className="w-[1000px] h-[800px] bg-red-500 rounded-full blur-[260px] absolute top-[-990px] left-[-400px]" />
+            {children}
           </main>
         </ThemeProvider>
       </body>

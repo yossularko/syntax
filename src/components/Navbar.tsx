@@ -12,6 +12,11 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+});
 
 const menus = [
   {
@@ -35,9 +40,14 @@ const menus = [
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <div className="fixed top-0 left-0 w-full backdrop-blur-lg z-10">
-      <div className="flex gap-4 max-w-7xl mx-auto h-[80px] items-center">
-        <div className="flex flex-col w-[120px] text-yellow-200 text-xl tracking-widest font-semibold">
+    <div className="fixed top-0 left-0 w-full backdrop-blur-lg z-50">
+      <div className="flex gap-4 max-w-7xl mx-auto h-[100px] items-center px-4">
+        <div
+          className={cn(
+            orbitron.className,
+            "flex flex-col w-[120px] text-yellow-200 text-xl tracking-widest font-semibold"
+          )}
+        >
           SYNTAX
         </div>
         <div className="flex flex-1 flex-col items-center">
